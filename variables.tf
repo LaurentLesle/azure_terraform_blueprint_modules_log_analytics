@@ -19,7 +19,7 @@ variable "name" {
 variable "solution_plan_map" {
     description = "(Optional) List of map of the solutions"
     type = "map"
-    default = ""
+    default = {}
 }
 
 # Map structure:
