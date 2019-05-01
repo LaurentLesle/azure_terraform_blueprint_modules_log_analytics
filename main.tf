@@ -11,7 +11,7 @@ locals {
 
 resource "azurerm_log_analytics_solution" "container_insights" {
   count                 = "${length(local.solution_list)}"
-  solution_name         = "${local.solution_list}"
+  solution_name         = "${element(local.solution_list, count.index)}"
   location              = "${var.location}"
   resource_group_name   = "${var.resource_group_name}"
   workspace_resource_id = "${azurerm_log_analytics_workspace.log.id}"
