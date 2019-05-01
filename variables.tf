@@ -20,13 +20,15 @@ variable "solutions" {
     type        = "list"
 }
 
-solutions = [
-    "ContainerInsights"
-]
 
-solution_provider = {
-    ContainerInsights {
-        publisher = "Microsoft"
-        product   = "OMSGallery/ContainerInsights"
-    }
+variable "solution_plan_map" {
+    type = "map"
 }
+
+# Map structure:
+# solution_plan_map = {
+#     ContainerInsights {
+#         publisher = "Microsoft"
+#         product   = "OMSGallery/ContainerInsights"
+#     }
+# }
