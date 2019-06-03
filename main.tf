@@ -18,7 +18,7 @@ resource "azurerm_log_analytics_solution" "container_insights" {
   workspace_name        = azurerm_log_analytics_workspace.log.name
 
   dynamic "plan" {
-    for_each = var.solution_plan_map[element(local.solution_list, count.index)]
+    for_each = var.solution_plan_map
     content {
       # TF-UPGRADE-TODO: The automatic upgrade tool can't predict
       # which keys might be set in maps assigned here, so it has
@@ -26,7 +26,6 @@ resource "azurerm_log_analytics_solution" "container_insights" {
       # this after confirming which keys can be set in practice.
 
       product        = plan.value.product
-      promotion_code = lookup(plan.value, "promotion_code", null)
       publisher      = plan.value.publisher
     }
   }
