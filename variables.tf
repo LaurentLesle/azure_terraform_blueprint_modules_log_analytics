@@ -1,25 +1,24 @@
 variable "resource_group_name" {
-    description = "Resource group name"
+  description = "Resource group name"
 }
 
 variable "location" {
-    description = "Location of the resources"
+  description = "Location of the resources"
 }
 
-
 variable "prefix" {
-    description = "(Optional) Prefix to add to resources"
-    default = ""
+  description = "(Optional) Prefix to add to resources"
+  default     = ""
 }
 
 variable "name" {
-    description = "Log Analytics workspace name"
+  description = "Log Analytics workspace name"
 }
 
 variable "solution_plan_map" {
-    description = "(Optional) List of map of the solutions"
-    type = "map"
-    default = {}
+  description = "(Optional) List of map of the solutions"
+  type        = map(string)
+  default     = {}
 }
 
 # Map structure:
