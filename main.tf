@@ -17,6 +17,10 @@ resource "azurerm_log_analytics_solution" "solution" {
   workspace_resource_id = azurerm_log_analytics_workspace.log.id
   workspace_name        = azurerm_log_analytics_workspace.log.name
 
-  plan = "${var.solution_plan_map["${element(local.solution_list, count.index)}"]}"
+  plan {
+    product        = var.solution_plan_map[element(local.solution_list, count.index)].product
+    promotion_code = var.solution_plan_map[element(local.solution_list, count.index)].promotion_code
+    publisher      = var.solution_plan_map[element(local.solution_list, count.index)].publisher
+  }
 }
 
