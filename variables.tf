@@ -17,14 +17,20 @@ variable "name" {
 
 variable "solution_plan_map" {
   description = "(Optional) List of map of the solutions"
-  type        = map(string)
+  type = map(any)
   default     = {}
 }
 
 # Map structure:
 # solution_plan_map = {
-#     ContainerInsights = [{
-#         publisher = "Microsoft"
-#         product   = "OMSGallery/ContainerInsights"
-#     }]
-# }
+#     ContainerInsights = {
+#         publisher       = "Microsoft"
+#         promotion_code  = null
+#         product         = "OMSGallery/ContainerInsights"
+#     },
+#     ContainerInsights1 = {
+#         publisher       = "Microsoft1"
+#         promotion_code  = null
+#         product         = "OMSGallery/ContainerInsights1"
+#     } 
+#   }
